@@ -2,8 +2,10 @@
  * Test 08 - Shopping cart
  */
 
+/*
+  Shopping card with push mechanism
+*/
 var shoppingCart = [];
-
 var buy = function(product) {
   shoppingCart.push(product);
 };
@@ -31,6 +33,9 @@ var checkout = function(products) {
   });
 }
 
+/*
+  Add some products
+*/
 buy({
     price: 80,
     name: 'Handy'
@@ -54,5 +59,29 @@ buy({
   code: '1337'
 });
 
-var invoice = checkout(shoppingCart);
-console.log(invoice);
+// var invoice = checkout(shoppingCart);
+// console.log(invoice);
+
+/*
+  Add products and update shopping cart view
+  in defined time intervals
+*/
+setInterval(function() {
+  buy({
+    price: -10,
+    name: 'Voucher',
+    code: '1337'
+  });
+  console.log('Added new product.');  
+}, 2000);
+
+setInterval(function() {
+  console.log('--- Invoice ---');
+  var invoice = checkout(shoppingCart);
+  console.log(invoice);
+  console.log('---------------');
+}, 5000);
+
+
+
+
