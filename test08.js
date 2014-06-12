@@ -14,6 +14,8 @@ var buy = function(product) {
 var checkout = function(products) {
   return products.filter(function(item) {
     return item.price && item.name;
+  }).filter(function(item) {
+    return (!item.code || item.code === '1337');
   }).map(function(item) {
     item.tax = item.price * 0.19;
     return item;
@@ -46,6 +48,11 @@ buy({
     price: 55,
     name: 'TV'
   });
+buy({
+  price: -10,
+  name: 'Voucher',
+  code: '1337'
+});
 
 var invoice = checkout(shoppingCart);
 console.log(invoice);
