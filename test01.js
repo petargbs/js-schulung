@@ -4,26 +4,25 @@
 var fs = require('fs')
   , path = require('path')
 
- var myPath = path.join(__dirname, 'foo');
- if (!fs.existsSync(myPath))
+/*
+  Create target folder for writing
+*/
+var myPath = path.join(__dirname, 'foo');
+if (!fs.existsSync(myPath))
   fs.mkdirSync(myPath);
 
-
+/*
+  Sync write call
+*/
 var newPath = path.join(myPath, 'demo.txt');
 fs.writeFileSync(newPath, 'Hello World!');
 
+/*
+  Async read call
+*/
 fs.readFile(newPath, function(err, data) {
   console.log(data.toString());
-  console.log('Read.');
+  console.log('File read.');
 });
 
-console.log('Written.');
-
-/*
-    Exports
-    */
-module.exports = function() {
-  return {
-
-  };
-};
+console.log('File written.');

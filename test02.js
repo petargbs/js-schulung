@@ -9,10 +9,6 @@ var Person = function(Name, Vorname) {
     this.getId = function() {
         return 123;
     };
-
-    // return {
-    //  'name': 'Public Name'
-    // };
 };
 
 var Customer = function(Name, Vorname) {
@@ -22,6 +18,7 @@ var Customer = function(Name, Vorname) {
     for (var i in this) {
         console.log(i);
     }
+    console.log('----------------------------');
     // console.log(Customer.prototype.constructor.toString());
     // console.log(this.constructor.toString());
     
@@ -34,8 +31,9 @@ var Customer = function(Name, Vorname) {
 };
 
 Customer.prototype = new Person();
+// It does not matter whehter you explicitly specify constructor
+// It will point to Person, anyway.
 // Customer.prototype.constructor = Person;
-
 Customer.prototype.show = function() {
     return this.name + ' ' + this.vorname + ' ' + this.getId();
 };
@@ -43,6 +41,5 @@ Customer.prototype.show = function() {
 var customer = new Customer('Petrov', 'Petar');
 
 console.log(customer.show());
-
 console.log(customer instanceof Person);
 console.log(customer instanceof Customer)
