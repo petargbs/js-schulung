@@ -3,10 +3,14 @@
  */
 
 var foo = function() {
+	// first argument is our callback function
+	var callback = arguments[0];
 	// slice first argument out
-	// Note, arguments isn't really a javascript Array ...at least not in ECMA <= 6 :)
+	// Note: 'arguments' isn't really a javascript Array ...at least not in ECMA <= 6 :)
 	var args = Array.prototype.slice.call(arguments, 1);
-	console.log(args);
+	callback && callback(args);		
 };
 
-foo('Arg1', 'Arg2', 'Arg3', 'Arg4');
+foo(function(args) {
+	console.log('Sliced arguments:', args);
+}, 'Arg1', 'Arg2', 'Arg3', 'Arg4');
