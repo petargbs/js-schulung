@@ -25,3 +25,14 @@ var sum = calc.reduce(function(state, next) {
   return state += next;
 }, 10); // 10 is initial value
 console.log(sum);
+
+// find odd numbers and multiply in 1 pass
+// via func calls
+var oddfn = function(item) {
+  return (item % 2) === 1;  
+};
+var mulfn = function(item) {
+  return (item * 2);  
+};
+var result = list.filter(oddfn).map(mulfn);
+console.log(result);

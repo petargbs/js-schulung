@@ -10,3 +10,4 @@ js Schulung
   * [test05](test05.js) - Javascript closures
   * [test06](test06.js) - Javascript arguments and callbacks
   * [test07](test07.js) - Javascript lists
+  * [test08](test08.js) - Shopping cart
