@@ -8,7 +8,7 @@ var foo = function() {
 	// slice first argument out
 	// Note: 'arguments' isn't really a javascript Array ...at least not in ECMA <= 6 :)
 	var args = Array.prototype.slice.call(arguments, 1);
-	callback && callback(args);		
+	callback instanceof Function && callback(args);		
 };
 
 foo(function(args) {
